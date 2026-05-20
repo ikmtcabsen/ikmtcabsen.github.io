@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Absensi Siswa IKMTC</title>
+    <style>
+        :root {
+            --primary-yellow: #ffcc00;
+            --dark-industrial: #1a1a1a;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
+                        url('<img src="https://img.sanishtech.com/u/2b4a7a3db5ab96f02254106724ee949d.jpg" alt="LOGO IKMTC" width="1000" height="1168" loading="lazy" style="max-width:100%;height:auto;">') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(26, 26, 26, 0.95);
+            width: 90%;
+            max-width: 480px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            border-top: 6px solid var(--primary-yellow);
+            text-align: center;
+        }
+
+        .header-logo {
+            width: 140px;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-yellow);
+            background: white;
+        }
+
+        h2 {
+            margin: 10px 0 5px 0;
+            color: var(--primary-yellow);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 1.4em;
+        }
+
+        .sub-text {
+            font-size: 0.85em;
+            color: #ccc;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--primary-yellow);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 14px;
+            border-radius: 6px;
+            border: 1px solid #444;
+            background: #2b2b2b;
+            color: white;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-yellow);
+        }
+
+        optgroup {
+            background: #1a1a1a;
+            color: var(--primary-yellow);
+            font-style: normal;
+        }
+
+        option {
+            background: #2b2b2b;
+            color: white;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button {
+            flex: 1;
+            padding: 16px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+        }
+
+        .btn-checkin { background-color: #28a745; color: white; }
+        .btn-checkout { background-color: #dc3545; color: white; }
+
+        button:hover { opacity: 0.9; transform: scale(1.02); }
+
+        #status {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="LOGO IKMTC.jpg" alt="Logo IKMTC" class="header-logo">
+    <h2>Absensi IKMTC</h2>
+    <div class="sub-text">Lembaga Pelatihan Kerja<br>Idaman Karya Mandiri Training Centre</div>
+
+    <div class="form-group">
+        <label>NAMA LENGKAP</label>
+        <input type="text" id="nama" placeholder="Masukkan nama sesuai identitas">
+    </div>
+
+    <div class="form-group">
+        <label>PROGRAM JURUSAN</label>
+        <select id="jurusan">
+            <option value="">-- Pilih Program Pelatihan --</option>
+            
+            <optgroup label="1. PELATIHAN HARD SKILL (+K3 Umum)">
+                <option value="Operator Excavator">Operator Excavator</option>
+                <option value="Operator Dump Truk">Operator Dump Truk</option>
+                <option value="Operator Loader">Operator Loader</option>
+                <option value="Operator Forklift">Operator Forklift</option>
+                <option value="Driver">Driver</option>
+                <option value="Mekanik Alat Berat">Mekanik Alat Berat</option>
+                <option value="Welder 3G/6G">Welder 3G/6G</option>
+                <option value="Konstruksi">Konstruksi</option>
+                <option value="Rigger">Rigger</option>
+                <option value="Scaffolding">Scaffolding</option>
+                <option value="Electrical & Autoelectric">Electrical & Autoelectric</option>
+                <option value="Carpenter">Carpenter</option>
+                <option value="Housekeeping">Housekeeping</option>
+                <option value="Millwright Rock Crusher">Millwright Rock Crusher</option>
+            </optgroup>
+
+            <optgroup label="2. PELATIHAN SOFT SKILL">
+                <option value="Ahli K3 Umum">Ahli K3 Umum</option>
+                <option value="Safety Officer + K3 Umum">Safety Officer + K3 Umum</option>
+                <option value="HR. Admin + K3 Umum">HR. Admin + K3 Umum</option>
+                <option value="Komputer + K3 Umum">Komputer + K3 Umum</option>
+                <option value="POP Pertambangan + K3 Umum">POP Pertambangan + K3 Umum</option>
+            </optgroup>
+
+            <optgroup label="3. PELATIHAN TAMBAHAN">
+                <option value="LOTOTO (Log Out, Tag Out, Try Out)">LOTOTO</option>
+                <option value="FIRE WARDEN">FIRE WARDEN</option>
+                <option value="WORKING AT HEIGHT (Bekerja di Ketinggian)">WORKING AT HEIGHT</option>
+                <option value="HOT WORK PERMIT">HOT WORK PERMIT</option>
+                <option value="CONFINED SPACE (Bekerja Area Terbatas)">CONFINED SPACE</option>
+            </optgroup>
+        </select>
+    </div>
+
+    <div class="btn-container">
+        <button class="btn-checkin" onclick="kirimAbsen('MASUK (CHECK-IN)')">MASUK</button>
+        <button class="btn-checkout" onclick="kirimAbsen('PULANG (CHECK-OUT)')">PULANG</button>
+    </div>
+
+    <p id="status">Sistem akan meminta akses lokasi via GPS</p>
+</div>
+
+<script>
+    function kirimAbsen(tipe) {
+        const nama = document.getElementById('nama').value;
+        const jurusan = document.getElementById('jurusan').value;
+        const statusText = document.getElementById('status');
+
+        if (!nama || !jurusan) {
+            alert("Harap lengkapi Nama dan Jurusan!");
+            return;
+        }
+
+        statusText.innerHTML = "📡 Mencari lokasi koordinat...";
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                const mapsLink = `https://www.google.com/maps?q=${lat},${lon}`;
+                const waktu = new Date().toLocaleString('id-ID', { timeZone: 'Asia/Jayapura' }); // Mengatur zona waktu (contoh WIT)
+
+                const nomorWA = "6282131107245";
+                const pesan = `*ABSENSI IKMTC*%0A` +
+                              `----------------------------%0A` +
+                              `*STATUS:* ${tipe}%0A` +
+                              `*NAMA:* ${nama}%0A` +
+                              `*JURUSAN:* ${jurusan}%0A` +
+                              `*WAKTU:* ${waktu} WIT%0A` +
+                              `*LOKASI:* ${mapsLink}`;
+
+                window.open(`https://wa.me/${nomorWA}?text=${pesan}`, '_blank');
+                statusText.innerHTML = "✅ Absensi siap dikirim melalui WhatsApp";
+            }, function(error) {
+                alert("Gagal mengakses lokasi. Pastikan izin lokasi (GPS) pada browser sudah diizinkan.");
+                statusText.innerHTML = "❌ Gagal: Akses lokasi ditolak.";
+            });
+        } else {
+            alert("Browser tidak mendukung fitur geolokasi.");
+        }
+    }
+</script>
+
+</body>
+</html>
